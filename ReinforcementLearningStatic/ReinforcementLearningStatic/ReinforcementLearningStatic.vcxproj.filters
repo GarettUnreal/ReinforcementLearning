@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\linear">
+      <UniqueIdentifier>{d488e9e1-2539-4e5a-8989-97d6b10f8438}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\linear">
+      <UniqueIdentifier>{8b7f5298-b78a-4ca9-b321-952216e708d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Traces">
+      <UniqueIdentifier>{abaceff2-ce99-4a17-9a1f-ac1416abb4d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Policy">
+      <UniqueIdentifier>{bb724857-8420-4612-bcc7-3993f6c412d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Traces">
+      <UniqueIdentifier>{4fe9e0a8-942e-4018-b971-02366d843801}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Policy">
+      <UniqueIdentifier>{70e2081f-f4a6-4226-ba99-e5b09d7c6311}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sarsa.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SarsaValueFunction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Action.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FeatureFunction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelParameters.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LinearSarsaValueFn.h">
+      <Filter>Header Files\linear</Filter>
+    </ClInclude>
+    <ClInclude Include="LinearParameters.h">
+      <Filter>Header Files\linear</Filter>
+    </ClInclude>
+    <ClInclude Include="FeatureCalculator.h">
+      <Filter>Header Files\linear</Filter>
+    </ClInclude>
+    <ClInclude Include="Tiling.h">
+      <Filter>Header Files\linear</Filter>
+    </ClInclude>
+    <ClInclude Include="Tiles.h">
+      <Filter>Header Files\linear</Filter>
+    </ClInclude>
+    <ClInclude Include="EligibilityTraceUpdater.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LinearTraceUpdator.h">
+      <Filter>Header Files\linear</Filter>
+    </ClInclude>
+    <ClInclude Include="Policy.h">
+      <Filter>Header Files\Policy</Filter>
+    </ClInclude>
+    <ClInclude Include="DiscreteGreedyPolicy.h">
+      <Filter>Header Files\Policy</Filter>
+    </ClInclude>
+    <ClInclude Include="NextTraceCalculator.h">
+      <Filter>Header Files\Traces</Filter>
+    </ClInclude>
+    <ClInclude Include="ReplaceTraceCalculator.h">
+      <Filter>Header Files\Traces</Filter>
+    </ClInclude>
+    <ClInclude Include="AccumulatingTraceCalculator.h">
+      <Filter>Header Files\Traces</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelParameters.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sarsa.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SarsaValueFunction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Action.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FeatureFunction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LinearParameters.cpp">
+      <Filter>Source Files\linear</Filter>
+    </ClCompile>
+    <ClCompile Include="LinearSarsaValueFn.cpp">
+      <Filter>Source Files\linear</Filter>
+    </ClCompile>
+    <ClCompile Include="FeatureCalculator.cpp">
+      <Filter>Source Files\linear</Filter>
+    </ClCompile>
+    <ClCompile Include="Tiling.cpp">
+      <Filter>Source Files\linear</Filter>
+    </ClCompile>
+    <ClCompile Include="Tiles.cpp">
+      <Filter>Source Files\linear</Filter>
+    </ClCompile>
+    <ClCompile Include="LinearTraceUpdator.cpp">
+      <Filter>Source Files\linear</Filter>
+    </ClCompile>
+    <ClCompile Include="Policy.cpp">
+      <Filter>Source Files\Policy</Filter>
+    </ClCompile>
+    <ClCompile Include="EligibilityTraceUpdater.cpp">
+      <Filter>Source Files\Traces</Filter>
+    </ClCompile>
+    <ClCompile Include="DiscreteGreedyPolicy.cpp">
+      <Filter>Source Files\Policy</Filter>
+    </ClCompile>
+    <ClCompile Include="ReplaceTraceCalculator.cpp">
+      <Filter>Source Files\Traces</Filter>
+    </ClCompile>
+    <ClCompile Include="AccumulatingTraceCalculator.cpp">
+      <Filter>Source Files\Traces</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

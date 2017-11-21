@@ -1,0 +1,21 @@
+﻿  stdafx.cpp
+  Vector.cpp
+  Tiling.cpp
+  Tiles.cpp
+  State.cpp
+  SarsaValueFunction.cpp
+  Sarsa.cpp
+  ReplaceTraceCalculator.cpp
+  Policy.cpp
+  ModelParameters.cpp
+  LinearTraceUpdator.cpp
+  LinearSarsaValueFn.cpp
+  LinearParameters.cpp
+  FeatureFunction.cpp
+  FeatureCalculator.cpp
+  EligibilityTraceUpdater.cpp
+  DiscreteGreedyPolicy.cpp
+  Action.cpp
+  AccumulatingTraceCalculator.cpp
+  Generating Code...
+  ReinforcementLearningStatic.vcxproj -> D:\VisualStudio2017\ReinforcementLearningStatic\Debug\ReinforcementLearningStatic.lib

@@ -1,7 +1,8 @@
 #include "stdafx.h"
 #include "LinearTraceUpdator.h"
-#include "LinearSarsaValueFn.h"
+#include "LinearStateActionValueFunction.h"
 #include "LinearParameters.h"
+#include "LinearStateActionFeatureCalculator.h"
 
 LinearTraceUpdator::LinearTraceUpdator()
 {
@@ -12,13 +13,14 @@ LinearTraceUpdator::~LinearTraceUpdator()
 {
 }
 
-void LinearTraceUpdator::stateVisitUpdate(std::shared_ptr<SarsaValueFunction> valueFunction, const State & state,
-	const Action & action, std::shared_ptr<ModelParameters> eligibilityTraces)
+void LinearTraceUpdator::stateActionVisitUpdate(std::shared_ptr<ValueFunction> valueFunction,
+	const Circumstance& circumstance, std::shared_ptr<ModelParameters> eligibilityTraces)
 {
-	const LinearSarsaValueFn* linearValuFn = static_cast<const LinearSarsaValueFn*>(valueFunction.get());
-	FeatureCalculator* calculator = linearValuFn->getFeatureCalculator();
+	const StateActionCircumstance& stateActionCircumstance = dynamic_cast<const StateActionCircumstance&>(circumstance);
+	const LinearStateActionValueFunction* linearValuFn = static_cast<const LinearStateActionValueFunction*>(valueFunction.get());
+	LinearStateActionFeatureCalculator* calculator = dynamic_cast<LinearStateActionFeatureCalculator*>(linearValuFn->getFeatureCalculator().get() );
 	std::vector<unsigned int> requiredIndicies;
-	calculator->calculateFeatures(state, action, &requiredIndicies);
+	calculator->calculateFeatures(stateActionCircumstance, &requiredIndicies);
 	LinearParameters* linearParameters = dynamic_cast<LinearParameters*>(eligibilityTraces.get());
 
 	unsigned int requiredIndex = 0;

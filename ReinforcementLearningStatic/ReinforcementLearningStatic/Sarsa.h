@@ -3,15 +3,16 @@
 #include "Policy.h"
 #include "Action.h"
 #include "State.h"
-#include "SarsaValueFunction.h"
+#include "ValueFunction.h"
 #include "EligibilityTraceUpdater.h"
+#include "StateActionCircumstance.h"
 
 class Sarsa
 {
 public:
 
 	Sarsa(
-		std::shared_ptr<SarsaValueFunction> valueFunction,
+		std::shared_ptr<ValueFunction> valueFunction,
 		std::shared_ptr<ModelParameters> eligibilityTraces,
 		std::shared_ptr<ModelParameters> modelParameters,
 		std::shared_ptr<EligibilityTraceUpdater> eligibilityTraceUpdater
@@ -19,18 +20,14 @@ public:
 
 	virtual ~Sarsa();
 
-	void setInitialStateAction(
-		const State& state,
-		const Action& action
-	);
+	void setInitialStateAction( const StateActionCircumstance& stateAction );
 
 	void stepUpdate(
 		const double lambda,
 		const double gamma,
 		const double alpha,
 		const double reward,
-		const State& state,
-		const Action& action
+		const StateActionCircumstance& stateAction
 	);
 
 	void terminalUpdate(
@@ -42,11 +39,10 @@ public:
 
 private:
 
-	std::shared_ptr<SarsaValueFunction> _valueFunction;
+	std::shared_ptr<ValueFunction> _valueFunction;
 	std::shared_ptr<EligibilityTraceUpdater> _eligibilityTraceUpdater;
 
-	State _prevState;
-	Action _prevAction;
+	StateActionCircumstance _prevCircumstance;
 	double _prevValuePred;
 	std::shared_ptr<ModelParameters> _modelParameters;
 	std::shared_ptr<ModelParameters> _eligibilityTraces;

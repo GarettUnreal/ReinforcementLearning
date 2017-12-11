@@ -1,6 +1,6 @@
 #pragma once
 
-#include "SarsaValueFunction.h"
+#include "ValueFunction.h"
 
 #include "Policy.h"
 
@@ -10,7 +10,7 @@ public:
 	DiscreteGreedyPolicy();
 	~DiscreteGreedyPolicy();
 
-	inline void setValueFunction(std::shared_ptr<SarsaValueFunction> valueFunction)
+	inline void setValueFunction(std::shared_ptr<ValueFunction> valueFunction)
 	{
 		_valueFunction = valueFunction;
 	}
@@ -53,7 +53,7 @@ protected:
 	bool testEpsilonGreedy();
 
 	std::vector< std::shared_ptr<Action> > _actions;
-	std::shared_ptr<SarsaValueFunction> _valueFunction;
+	std::shared_ptr<ValueFunction> _valueFunction;
 	double _epsilon;
 };
 

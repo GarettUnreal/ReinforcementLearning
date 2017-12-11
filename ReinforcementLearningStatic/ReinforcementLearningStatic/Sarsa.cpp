@@ -3,7 +3,7 @@
 
 
 Sarsa::Sarsa(
-	std::shared_ptr<SarsaValueFunction> valueFunction,
+	std::shared_ptr<ValueFunction> valueFunction,
 	std::shared_ptr<ModelParameters> eligibilityTraces,
 	std::shared_ptr<ModelParameters> modelParameters,
 	std::shared_ptr<EligibilityTraceUpdater> eligibilityTraceUpdater
@@ -12,25 +12,18 @@ Sarsa::Sarsa(
 	_eligibilityTraces(eligibilityTraces),
 	_modelParameters(modelParameters),
 	_eligibilityTraceUpdater(eligibilityTraceUpdater),
-	_prevState(0),
-	_prevAction(0),
 	_prevValuePred(0)
-{
-}
-
+{}
 
 Sarsa::~Sarsa()
 {
 }
 
-void Sarsa::setInitialStateAction(
-	const State& state,
-	const Action& action
-)
+void Sarsa::setInitialStateAction(const StateActionCircumstance& stateAction)
 {
-	_prevState = state;
-	_prevAction = action;
-	_prevValuePred = _valueFunction->value(_prevState, _prevAction);
+	_prevCircumstance.state = stateAction.state;
+	_prevCircumstance.action = stateAction.action;
+	_prevValuePred = _valueFunction->value(stateAction);
 }
 
 void
@@ -39,13 +32,12 @@ Sarsa::stepUpdate(
 	const double gamma,
 	const double alpha,
 	const double reward,
-	const State& state,
-	const Action& action
+	const StateActionCircumstance& stateAction
 )
 {
-	_eligibilityTraceUpdater->stateVisitUpdate(_valueFunction, _prevState, _prevAction, _eligibilityTraces );
+	_eligibilityTraceUpdater->stateActionVisitUpdate(_valueFunction, _prevCircumstance, _eligibilityTraces );
 
-	double currValuePred = _valueFunction->value(state, action);
+	double currValuePred = _valueFunction->value(stateAction);
 
 	double delta = reward + gamma * currValuePred - _prevValuePred;
 
@@ -53,14 +45,14 @@ Sarsa::stepUpdate(
 
 	_eligibilityTraceUpdater->stateDecayUpdate(gamma, lambda, _eligibilityTraces);
 
-	_prevState = state;
-	_prevAction = action;
+	_prevCircumstance.state = stateAction.state;
+	_prevCircumstance.action = stateAction.action;
 	_prevValuePred = currValuePred;
 }
 
 void Sarsa::terminalUpdate(const double lambda, const double gamma, const double alpha, const double reward)
 {
-	_eligibilityTraceUpdater->stateVisitUpdate(_valueFunction, _prevState, _prevAction, _eligibilityTraces);
+	_eligibilityTraceUpdater->stateActionVisitUpdate(_valueFunction, _prevCircumstance, _eligibilityTraces);
 	double delta = reward - _prevValuePred;
 
 	_modelParameters->update(alpha, delta, _eligibilityTraces);

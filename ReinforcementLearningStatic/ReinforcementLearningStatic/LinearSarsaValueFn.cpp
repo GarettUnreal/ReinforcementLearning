@@ -1,27 +1,25 @@
 #include "stdafx.h"
 
 #include "Vector.h"
-#include "LinearSarsaValueFn.h"
+#include "LinearStateActionValueFunction.h"
 #include "LinearParameters.h"
+#include "LinearStateActionFeatureCalculator.h"
 
-
-LinearSarsaValueFn::LinearSarsaValueFn(FeatureCalculator* featureCalculator) :
-	_featureCalculator(featureCalculator)
+LinearStateActionValueFunction::LinearStateActionValueFunction()
 {
 }
 
 
-LinearSarsaValueFn::~LinearSarsaValueFn()
-{
-	delete _featureCalculator;
-}
+LinearStateActionValueFunction::~LinearStateActionValueFunction()
+{}
 
-double LinearSarsaValueFn::value(const State & state, const Action & action )
+double LinearStateActionValueFunction::value(const Circumstance& circumstance)
 {
+	const StateActionCircumstance& stateAction = dynamic_cast<const StateActionCircumstance&>(circumstance);
 	const LinearParameters* linearParameters = dynamic_cast<const LinearParameters*>(_modelParameters.get());
 
 	std::vector<unsigned int> requiredIndicies;
-	_featureCalculator->calculateFeatures(state, action, &requiredIndicies);
+	dynamic_cast<LinearStateActionFeatureCalculator*>(_featureCalculator.get() )->calculateFeatures(stateAction, &requiredIndicies);
 
 	double result = 0.0;
 	unsigned int requiredIndex = 0;
@@ -34,13 +32,16 @@ double LinearSarsaValueFn::value(const State & state, const Action & action )
 	return result;
 }
 
-std::shared_ptr< ModelParameters > LinearSarsaValueFn::gradient(const State & state, const Action & action)
+std::shared_ptr< ModelParameters > LinearStateActionValueFunction::gradient(const Circumstance& circumstance)
 {
+	const StateActionCircumstance& stateAction = dynamic_cast<const StateActionCircumstance&>(circumstance);
 	std::vector<unsigned int> requiredIndicies;
-	_featureCalculator->calculateFeatures(state, action, &requiredIndicies);
+	LinearStateActionFeatureCalculator* featureCalculator = dynamic_cast<LinearStateActionFeatureCalculator*>(_featureCalculator.get());
+
+	featureCalculator->calculateFeatures(stateAction, &requiredIndicies);
 	const LinearParameters* linearParameters = dynamic_cast<const LinearParameters*>(_modelParameters.get());
 
-	unsigned int numFeatures = _featureCalculator->getNumFeatures();
+	unsigned int numFeatures = featureCalculator->getNumFeatures();
 	LinearParameters* result = new LinearParameters(numFeatures);
 
 	for (unsigned int index = 0; index < numFeatures; ++index)

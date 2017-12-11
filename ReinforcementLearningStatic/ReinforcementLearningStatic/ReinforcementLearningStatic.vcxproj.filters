@@ -31,6 +31,12 @@
     <Filter Include="Source Files\Policy">
       <UniqueIdentifier>{70e2081f-f4a6-4226-ba99-e5b09d7c6311}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\ActorCritic">
+      <UniqueIdentifier>{18c0ce79-1ff5-45fc-89bf-42b24b12844a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ActorCritic">
+      <UniqueIdentifier>{76aec61d-56f7-4f72-a2e7-80ee6a8b74a5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -45,9 +51,6 @@
     <ClInclude Include="Sarsa.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SarsaValueFunction.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="State.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -57,19 +60,10 @@
     <ClInclude Include="Action.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FeatureFunction.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ModelParameters.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LinearSarsaValueFn.h">
-      <Filter>Header Files\linear</Filter>
-    </ClInclude>
     <ClInclude Include="LinearParameters.h">
-      <Filter>Header Files\linear</Filter>
-    </ClInclude>
-    <ClInclude Include="FeatureCalculator.h">
       <Filter>Header Files\linear</Filter>
     </ClInclude>
     <ClInclude Include="Tiling.h">
@@ -99,6 +93,51 @@
     <ClInclude Include="AccumulatingTraceCalculator.h">
       <Filter>Header Files\Traces</Filter>
     </ClInclude>
+    <ClInclude Include="PolicyGradient.h">
+      <Filter>Header Files\ActorCritic</Filter>
+    </ClInclude>
+    <ClInclude Include="PolicyProbabilityFunction.h">
+      <Filter>Header Files\ActorCritic</Filter>
+    </ClInclude>
+    <ClInclude Include="LinearStateValueFunction.h">
+      <Filter>Header Files\linear</Filter>
+    </ClInclude>
+    <ClInclude Include="Circumstance.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ValueFunction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FeatureCalculator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StateActionCircumstance.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StateCircumstance.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LinearStateActionFeatureCalculator.h">
+      <Filter>Header Files\linear</Filter>
+    </ClInclude>
+    <ClInclude Include="LinearStateFeatureCalculator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CriticEligibilityTraceUpdater.h">
+      <Filter>Header Files\ActorCritic</Filter>
+    </ClInclude>
+    <ClInclude Include="LinearActorTraceUpdater.h">
+      <Filter>Header Files\ActorCritic</Filter>
+    </ClInclude>
+    <ClInclude Include="ActorEligibilityTraceUpdater.h">
+      <Filter>Header Files\ActorCritic</Filter>
+    </ClInclude>
+    <ClInclude Include="LinearCriticTraceUpdater.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LinearStateActionValueFunction.h">
+      <Filter>Header Files\linear</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -110,9 +149,6 @@
     <ClCompile Include="Sarsa.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SarsaValueFunction.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="State.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -122,16 +158,10 @@
     <ClCompile Include="Action.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FeatureFunction.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="LinearParameters.cpp">
       <Filter>Source Files\linear</Filter>
     </ClCompile>
     <ClCompile Include="LinearSarsaValueFn.cpp">
-      <Filter>Source Files\linear</Filter>
-    </ClCompile>
-    <ClCompile Include="FeatureCalculator.cpp">
       <Filter>Source Files\linear</Filter>
     </ClCompile>
     <ClCompile Include="Tiling.cpp">
@@ -157,6 +187,48 @@
     </ClCompile>
     <ClCompile Include="AccumulatingTraceCalculator.cpp">
       <Filter>Source Files\Traces</Filter>
+    </ClCompile>
+    <ClCompile Include="PolicyGradient.cpp">
+      <Filter>Source Files\ActorCritic</Filter>
+    </ClCompile>
+    <ClCompile Include="PolicyProbabilityFunction.cpp">
+      <Filter>Source Files\ActorCritic</Filter>
+    </ClCompile>
+    <ClCompile Include="LinearStateValueFunction.cpp">
+      <Filter>Source Files\linear</Filter>
+    </ClCompile>
+    <ClCompile Include="Circumstance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ValueFunction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FeatureCalculator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StateActionCircumstance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StateCircumstance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LinearStateActionFeatureCalculator.cpp">
+      <Filter>Source Files\linear</Filter>
+    </ClCompile>
+    <ClCompile Include="LinearStateFeatureCalculator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CriticEligibilityTraceUpdater.cpp">
+      <Filter>Source Files\ActorCritic</Filter>
+    </ClCompile>
+    <ClCompile Include="ActorEligibilityTraceUpdater.cpp">
+      <Filter>Source Files\ActorCritic</Filter>
+    </ClCompile>
+    <ClCompile Include="LinearActorTraceUpdater.cpp">
+      <Filter>Source Files\ActorCritic</Filter>
+    </ClCompile>
+    <ClCompile Include="LinearCriticTraceUpdater.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

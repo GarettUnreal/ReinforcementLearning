@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "DiscreteGreedyPolicy.h"
-
+#include "StateActionCircumstance.h"
 
 DiscreteGreedyPolicy::DiscreteGreedyPolicy()
 {
@@ -22,9 +22,12 @@ std::shared_ptr<Action> DiscreteGreedyPolicy::chooseAction(const State& state)
 	unsigned int actionIndex = numActions;
 	double bestValue = DBL_MIN;
 	double stateActionValue = 0.0;
+	StateActionCircumstance circumstance;
+	circumstance.state = state;
 	for (unsigned int index = 0; index < numActions; ++index)
 	{
-		stateActionValue = _valueFunction->value(state, *_actions.at(index));
+		circumstance.action = *_actions.at(index);
+		stateActionValue = _valueFunction->value(circumstance);
 		if (actionIndex == numActions || stateActionValue > bestValue)
 		{
 			bestValue = stateActionValue;
